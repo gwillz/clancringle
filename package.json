@@ -1,0 +1,21 @@
+{
+  "name": "clanchringle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "npm run build",
+    "deploy": "bash deploy.sh"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^6.1.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0"
+  },
+  "dependencies": {
+    "@b9g/crank": "^0.5.6"
+  }
+}

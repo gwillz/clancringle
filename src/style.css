@@ -26,7 +26,18 @@ a {
 button, input, select {
     font: inherit;
     color: inherit;
-    white-space: nowrap;;
+    white-space: nowrap;
+    padding: 3px 10px;
+    border-radius: 5px;
+}
+
+button, input, select {
+    background: #fff;
+    border: 1px solid #666;
+}
+
+label input + span {
+    margin-left: 5px;
 }
 
 hr {
@@ -56,13 +67,6 @@ h1, h2, h3 {
 
 .text-title {
     text-transform: capitalize;
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: #222;
-        color: #fff;
-    }
 }
 
 
@@ -163,4 +167,21 @@ h1, h2, h3 {
 .player__target::after {
     content: '👈';
     margin-left: 0.5em;
+}
+
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #222;
+        color: #fff;
+    }
+
+    button, input, select {
+        background: #444;
+        border: 1px solid #666;
+    }
+
+    button {
+        background: inherit;
+    }
 }

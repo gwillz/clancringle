@@ -50,11 +50,22 @@ h1, h2, h3 {
     margin: 0 0 20px;
 }
 
+img, video {
+    max-width: 100%;
+}
+
 .container {
     padding: 20px;
     margin: 0 auto;
     width: 100%;
     max-width: 800px;
+}
+
+.full-bleed {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+    max-width: calc(100% + 40px);
 }
 
 .toolbar {
@@ -169,6 +180,10 @@ h1, h2, h3 {
     margin-left: 0.5em;
 }
 
+.player__logo {
+    margin-top: 20px;
+    grid-column: 1 / -1;
+}
 
 @media (prefers-color-scheme: dark) {
     body {

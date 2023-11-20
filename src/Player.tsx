@@ -48,6 +48,10 @@ export function *Player(this: Context, props: Props) {
                     children={reveal ? props.player.target : '****'}
                 />
                 <span class="player__help">Hold to reveal</span>
+                <img
+                    class="player__logo full-bleed"
+                    src="logo.webp"
+                />
             </div>
         )
     }

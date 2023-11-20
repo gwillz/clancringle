@@ -48,8 +48,6 @@ export function *App(this: Context) {
     }
 
     for (let {} of this) {
-        console.log(params);
-
         const name = (params.name ?? '').trim();
         const target = atob(params.target ?? '').trim();
 

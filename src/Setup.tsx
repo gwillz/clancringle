@@ -77,25 +77,28 @@ export function *Setup(this: Context<Props>, props: Props) {
 
         yield (
             <div class="setup">
-                <h1>Clan Cringle: Setup</h1>
+                <h1>Clan Cringle</h1>
 
                 <h2>Players</h2>
                 <div class="setup__list">
                     {players.map((player, index) => (
-                        <div class="setup__player" crank-key={index}>
-                            <span>{player}</span>
+                        <div class="setup__player row-item" crank-key={index}>
+                            <span class="text-title">{player}</span>
+                            <hr/>
                             <button type="button" onclick={onDeletePlayer.bind(null, index)}>Delete</button>
                         </div>
                     ))}
-
-                    <form class="setup__player_form" onsubmit={onAddPlayer}>
-                        <input
-                            type="text"
-                            name="player"
-                        />
-                        <button type="submit">Add Player</button>
-                    </form>
                 </div>
+
+                <hr/>
+
+                <form class="setup__player__form" onsubmit={onAddPlayer}>
+                    <input
+                        type="text"
+                        name="player"
+                    />
+                    <button type="submit">Add Player</button>
+                </form>
 
                 <hr/>
 
@@ -104,9 +107,11 @@ export function *Setup(this: Context<Props>, props: Props) {
                     {rules.map((item, index) => (
                         <div class="setup__rule" crank-key={index}>
                             <span>
-                                <strong>{item.from}</strong>
+                                <strong class="text-title">{item.from}</strong>
                                 {' '}cannot give to{' '}
-                                <strong>{item.to}</strong>
+                                <strong class="text-title">{item.to}</strong>
+                            </span>
+                            <span>
                                 {item.bidirectional && (
                                     <em>{' '}(and vice versa)</em>
                                 )}
@@ -114,30 +119,32 @@ export function *Setup(this: Context<Props>, props: Props) {
                             <button type="button" onclick={onDeleteRule.bind(null, index)}>Delete</button>
                         </div>
                     ))}
-
-                    <form class="setup__rule__form" onsubmit={onAddRule}>
-                        <SelectField
-                            name='from'
-                            options={options}
-                        />
-                        <SelectField
-                            name='to'
-                            options={options}
-                        />
-                        <label>
-                            <input
-                                type="checkbox"
-                                name="bidirectional"
-                            />
-                            <span>Both ways?</span>
-                        </label>
-                        <button type="submit">Add Exclusion</button>
-                    </form>
                 </div>
 
                 <hr/>
 
-                <div>
+                <form class="setup__rule__form" onsubmit={onAddRule}>
+                    <SelectField
+                        name='from'
+                        options={options}
+                    />
+                    <SelectField
+                        name='to'
+                        options={options}
+                    />
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="bidirectional"
+                        />
+                        <span>Both ways?</span>
+                    </label>
+                    <button type="submit">Add Exclusion</button>
+                </form>
+
+                <hr/>
+
+                <div class="toolbar">
                     <button type="button" onclick={onCreate}>Create</button>
                 </div>
             </div>

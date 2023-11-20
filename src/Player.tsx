@@ -11,6 +11,8 @@ export function *Player(this: Context, props: Props) {
     let timer = 0;
 
     const onDown = (event: Event) => {
+        event.preventDefault();
+
         timer = setTimeout(() => {
             reveal = true;
             this.refresh();
@@ -18,6 +20,8 @@ export function *Player(this: Context, props: Props) {
     }
 
     const onUp = (event: Event) => {
+        event.preventDefault();
+
         reveal = false;
         clearTimeout(timer);
         this.refresh();
@@ -30,11 +34,20 @@ export function *Player(this: Context, props: Props) {
     for (let props of this) {
         yield (
             <div class="player">
-                <h2>Hey there {props.player.name}, your cringle is:</h2>
-
-                <h1 onmousedown={onDown} onmouseup={onUp} oncontextmenu={onContext}>
-                    {reveal ? props.player.target : 'Hold to Reveal'}
-                </h1>
+                <span class="player__intro">
+                    Hey there <em class="text-title">{props.player.name}</em>.
+                </span>
+                <span class="player__help">Your cringle:</span>
+                <span
+                    class="player__target text-title"
+                    onmousedown={onDown}
+                    ontouchstart={onDown}
+                    onmouseup={onUp}
+                    ontouchend={onUp}
+                    oncontextmenu={onContext}
+                    children={reveal ? props.player.target : '****'}
+                />
+                <span class="player__help">Hold to reveal</span>
             </div>
         )
     }
